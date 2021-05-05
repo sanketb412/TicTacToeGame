@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
+	//creating Method1
 	private char[][] creatingBoard() {
 		@SuppressWarnings("unused")
 		//creating a board for empty
@@ -16,13 +17,14 @@ public class TicTacToe {
 		}
 		return board;
 	}
-	
+	//creating Method2
 	public void input() {
+		//Choosing X or O for Player
 		System.out.println("Choose 'X' or 'O' ");
 		Scanner sc = new Scanner(System.in);
-		String letterPerson = sc.nextLine();
+		String letterPerson = sc.nextLine(); //getting input from player
 		System.out.println("Player Mark: "  +letterPerson);
-		int letterComputer = (int) (Math.random() * 10) % 2;
+		int letterComputer = (int) (Math.random() * 10) % 2; //getting random X or O from Computer
 		switch (letterComputer) {
 		case 0:
 			System.out.println("\nComputer Mark: O ");break;
@@ -34,8 +36,8 @@ public class TicTacToe {
 		// TODO Auto-generated method stub
 		System.out.println("..###..Welcome to Tic-Tac-Toe game..###..");
 		TicTacToe game = new TicTacToe();
-		game.creatingBoard();
-		game.input();
+		game.creatingBoard(); //Calling method for the creating board
+		game.input(); //Calling method for knowing the input
 	}
 
 }
