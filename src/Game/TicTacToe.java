@@ -8,8 +8,19 @@ public class TicTacToe {
 	private char player;
 	private char computer;
 
+	private char[] creatingBoard() {
+		System.out.println("\nCreated Board");
+		@SuppressWarnings("unused")
+		//creating a board for empty
+		char board[] =  new char[4];
+		for (int i = 1; i < 4; i++) {
+				board[i]=' ';				
+				System.out.println("|  " +board[i] + "|  " +board[i] + "|  " +board[i]  + "|");
+			}
+		return board;
+	}
 	// creating Method1
-	private void creatingBoard() {
+	private void showBoard() {
 		// creating a board with number inside for choosing
 		char position[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 		player = 'X';
@@ -20,16 +31,17 @@ public class TicTacToe {
 
 	// creating Method2
 	private String currentBoard() {
-		System.out.println("\n" + board[1] + "  | " + board[2] + "  | " + board[3]); // cell of 1st row
-		System.out.println("" + board[4] + "  | " + board[5] + "  | " + board[6]); // cell of 2nd row
-		System.out.println("" + board[7] + "  | " + board[8] + "  | " + board[9]); // cell of 3rd row
+		System.out.println("\nShowing Board with Specifing cell number");
+		System.out.println("| " + board[1] + " | " + board[2] + " | " + board[3] +" |"); // cell of 1st row
+		System.out.println("| " + board[4] + " | " + board[5] + " | " + board[6] +" |");// cell of 2nd row
+		System.out.println("| " + board[7] + " | " + board[8] + " | " + board[9] +" |"); // cell of 3rd row
 		return "currentBoard";
 	}
 
 	// creating Method3
 	private void User() {
 		int spot;
-		System.out.println("Player Call for toss Type '0' for Head or '1' for Tail"); // calling for toss
+		System.out.println("\nPlayer Call for toss Type '0' for Head or '1' for Tail"); // calling for toss
 
 		Scanner sc = new Scanner(System.in);
 		int toss = sc.nextInt(); // getting call from player
@@ -73,7 +85,6 @@ public class TicTacToe {
 			computer = 'O';
 		else
 			computer = 'X';
-
 	}
 
 	// creating Method5
@@ -99,6 +110,7 @@ public class TicTacToe {
 		System.out.println("..###..Welcome to Tic-Tac-Toe game..###..");
 		TicTacToe game = new TicTacToe();
 		game.creatingBoard(); // Calling method for the creating board.
+		game.showBoard();
 		game.currentBoard(); // Calling method of current board.
 		game.User();
 	}
