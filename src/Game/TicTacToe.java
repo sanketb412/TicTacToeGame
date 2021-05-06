@@ -4,16 +4,14 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
-	private char[][] creatingBoard() {
+	private char[] creatingBoard() {
 		@SuppressWarnings("unused")
 		//creating a board for empty
-		char board[][] =  new char[3][3];
-		for (int i = 1; i < 3; i++) {
-			for (int j = 1; j < 3; j++) {
-				board[i][j]=' ';
-				System.out.println("| " +board[i][j] + "| " +board[i][j] + "| " +board[i][j]  + "| ");
+		char board[] =  new char[4];
+		for (int i = 1; i < 4; i++) {
+				board[i]=' ';
+				System.out.println("| " +board[i] + "| " +board[i] + "| " +board[i]  + "| ");
 			}
-		}
 		return board;
 	}
 	public static void main(String[] args) {
