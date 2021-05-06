@@ -15,14 +15,24 @@ public class TicTacToe {
 	}
 
 	// creating Method2
-	public String showBoard() {
+	public String currentBoard() {
 		System.out.println("\n" + board[1] + "  | " + board[2] + "  | " + board[3]); // cell of 1st row
 		System.out.println("" + board[4] + "  | " + board[5] + "  | " + board[6]); // cell of 2nd row
 		System.out.println("" + board[7] + "  | " + board[8] + "  | " + board[9]); // cell of 3rd row
-		return "currentBoard";
+		return "showBoard";
 	}
 
 	// creating Method3
+	public boolean checkPosn(int spot) {
+		if (board[spot] == 'X' || board[spot] == 'O') { // checking the position is already taken or not.
+			System.out.println("That position is already taken, please choose another");
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// creating Method4
 	public void chossingLetter() {
 		// Choosing X or O for Player
 		System.out.println("\nChoose 'X' or 'O' ");
@@ -39,12 +49,12 @@ public class TicTacToe {
 		}
 	}
 
+	// Main
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("..###..Welcome to Tic-Tac-Toe game..###..");
 		TicTacToe game = new TicTacToe();
 		game.creatingBoard(); // Calling method for the creating board.
-		game.showBoard(); // Calling method of current board.
-		game.chossingLetter(); // Calling method for knowing the input.
+		game.currentBoard(); // Calling method of current board.
 	}
 }
