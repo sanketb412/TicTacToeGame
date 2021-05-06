@@ -49,7 +49,7 @@ public class TicTacToe {
 				currentBoard(); // display new board
 			}
 		} else {
-			System.out.println("\t###..Computer got chance to move..###");			
+			System.out.println("\t###..Computer got chance to move..###");
 		}
 		alternatePlay();
 	}
