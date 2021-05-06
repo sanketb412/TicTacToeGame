@@ -19,7 +19,7 @@ public class TicTacToe {
 	}
 
 	// creating Method2
-	public String currentBoard() {
+	private String currentBoard() {
 		System.out.println("\n" + board[1] + "  | " + board[2] + "  | " + board[3]); // cell of 1st row
 		System.out.println("" + board[4] + "  | " + board[5] + "  | " + board[6]); // cell of 2nd row
 		System.out.println("" + board[7] + "  | " + board[8] + "  | " + board[9]); // cell of 3rd row
@@ -27,7 +27,7 @@ public class TicTacToe {
 	}
 
 	// creating Method3
-	public void User() {
+	private void User() {
 		int spot;
 		System.out.println("Player Call for toss Type '0' for Head or '1' for Tail"); // calling for toss
 
@@ -35,7 +35,7 @@ public class TicTacToe {
 		int toss = sc.nextInt(); // getting call from player
 
 		int check = (int) (Math.random() * 10) % 2; // getting head or tails randomly.
-
+		alternatePlay();
 		if (check == toss) {
 			System.out.println("\t###..Player got chance to move..###");
 			System.out.println("\nChoose the location to move");
@@ -51,11 +51,10 @@ public class TicTacToe {
 		} else {
 			System.out.println("\t###..Computer got chance to move..###");
 		}
-		alternatePlay();
 	}
 
 	// creating Method4
-	public boolean checkPosn(int spot) {
+	private boolean checkPosn(int spot) {
 		if (board[spot] == 'X' || board[spot] == 'O') { // checking the position is already taken or not.
 			System.out.println("That position is already taken, please choose another");
 			return true;
@@ -69,7 +68,7 @@ public class TicTacToe {
 		return player;
 	}
 
-	public void alternatePlay() {
+	private void alternatePlay() {
 		if (player == 'X')
 			computer = 'O';
 		else
@@ -78,7 +77,7 @@ public class TicTacToe {
 	}
 
 	// creating Method5
-	public void chossingLetter() {
+	private void chossingLetter() {
 		// Choosing X or O for Player
 		System.out.println("\nChoose 'X' or 'O' ");
 		@SuppressWarnings("resource")
