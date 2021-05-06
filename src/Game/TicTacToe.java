@@ -11,14 +11,15 @@ public class TicTacToe {
 	private char[] creatingBoard() {
 		System.out.println("\nCreated Board");
 		@SuppressWarnings("unused")
-		//creating a board for empty
-		char board[] =  new char[4];
+		// creating a board for empty
+		char board[] = new char[4];
 		for (int i = 1; i < 4; i++) {
-				board[i]=' ';				
-				System.out.println("|  " +board[i] + "|  " +board[i] + "|  " +board[i]  + "|");
-			}
+			board[i] = ' ';
+			System.out.println("|  " + board[i] + "|  " + board[i] + "|  " + board[i] + "|");
+		}
 		return board;
 	}
+
 	// creating Method1
 	private void showBoard() {
 		// creating a board with number inside for choosing
@@ -32,15 +33,16 @@ public class TicTacToe {
 	// creating Method2
 	private String currentBoard() {
 		System.out.println("\nShowing Board with Specifing cell number");
-		System.out.println("| " + board[1] + " | " + board[2] + " | " + board[3] +" |"); // cell of 1st row
-		System.out.println("| " + board[4] + " | " + board[5] + " | " + board[6] +" |");// cell of 2nd row
-		System.out.println("| " + board[7] + " | " + board[8] + " | " + board[9] +" |"); // cell of 3rd row
+		System.out.println("| " + board[1] + " | " + board[2] + " | " + board[3] + " |"); // cell of 1st row
+		System.out.println("| " + board[4] + " | " + board[5] + " | " + board[6] + " |");// cell of 2nd row
+		System.out.println("| " + board[7] + " | " + board[8] + " | " + board[9] + " |"); // cell of 3rd row
 		return "currentBoard";
 	}
 
 	// creating Method3
 	private void User() {
 		int spot;
+		char blank = ' ';
 		System.out.println("\nPlayer Call for toss Type '0' for Head or '1' for Tail"); // calling for toss
 
 		Scanner sc = new Scanner(System.in);
@@ -48,6 +50,7 @@ public class TicTacToe {
 
 		int check = (int) (Math.random() * 10) % 2; // getting head or tails randomly.
 		alternatePlay();
+		do {
 		if (check == toss) {
 			System.out.println("\t###..Player got chance to move..###");
 			System.out.println("\nChoose the location to move");
@@ -63,6 +66,44 @@ public class TicTacToe {
 		} else {
 			System.out.println("\t###..Computer got chance to move..###");
 		}
+		}while ( checkWinner() == blank );        
+    }
+
+	public char checkWinner() {
+		char Winner = ' ';
+
+		// Check if X wins
+		if (board[1] == 'X' && board[2] == 'X' && board[3] == 'X')
+			Winner = 'X';
+		if (board[4] == 'X' && board[5] == 'X' && board[6] == 'X')
+			Winner = 'X';
+		if (board[7] == 'X' && board[8] == 'X' && board[9] == 'X')
+			Winner = 'X';
+		if (board[1] == 'X' && board[4] == 'X' && board[7] == 'X')
+			Winner = 'X';
+		if (board[2] == 'X' && board[5] == 'X' && board[8] == 'X')
+			Winner = 'X';
+		if (board[3] == 'X' && board[6] == 'X' && board[9] == 'X')
+			Winner = 'X';
+		if (board[1] == 'X' && board[5] == 'X' && board[9] == 'X')
+			Winner = 'X';
+		if (board[3] == 'X' && board[5] == 'X' && board[7] == 'X')
+			Winner = 'X';
+		if (Winner == 'X') {
+			System.out.println("Player wins the game.");
+		}
+		for (int i = 1; i < 10; i++) {
+			if (board[i] == 'X' || board[i] == 'O') {
+				if (i == 9) {
+					char Draw = 'D';
+					System.out.println(" Game is stalemate ");
+					return Draw;
+				}
+				continue;
+			} else
+				break;
+		}
+		return Winner;
 	}
 
 	// creating Method4
